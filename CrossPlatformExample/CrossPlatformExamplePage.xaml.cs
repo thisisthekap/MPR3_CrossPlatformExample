@@ -18,7 +18,7 @@ namespace CrossPlatformExample
         {
             if (int.TryParse(txtValueToSquare.Text, out int valueToSquare))
             {
-                txtValueToSquare.Text = (await new CrossPlatformExampleClient(new Uri($"http://{hostname}:5000/")).SquareAsync(valueToSquare)).ToString();
+                txtValueToSquare.Text = (await new CrossPlatformExampleClient(new Uri($"http://{hostName}:5000/")).SquareAsync(valueToSquare)).ToString();
             }
         }
     }
