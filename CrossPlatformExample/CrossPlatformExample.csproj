@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="2.4.0.18342" />
+		<PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.10" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="**\*.xaml" />
+		<EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
+		<Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+			<DependentUpon>*.xaml</DependentUpon>
+		</Compile>
+		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="CrossPlatformExamplePage.xaml.cs">
+			<DependentUpon>*.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+</Project>
